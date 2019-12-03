@@ -23,9 +23,10 @@ public:
 };
 
 template<class t>
-void BSTree(t data)
+void insert(t data)
 {
 	node<t>* newNode = new node<t>(data);
+	
 
 	if (root == nullptr)
 	{
@@ -33,6 +34,25 @@ void BSTree(t data)
 	}
 	else
 	{
-		node<t>* pivot = root;
+		if (data > tmp->data && tmp != nullptr)
+		{
+			node<t>* tmp = root;
+			insert(tmp->right);
+		}
+		else if (data < tmp->data && tmp != nullptr)
+		{
+			node<t>* tmp = root;
+			insert(tmp->left);
+		}
+		else
+		{
+			tmp = newNode;
+		}
 	}
+}
+
+template<class t>
+void inorderTraverse(node<t>* walker)
+{
+	if
 }
